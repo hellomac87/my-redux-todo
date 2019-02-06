@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { Container, Button, Form } from "semantic-ui-react";
 import { addTodo } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-class Form extends Component {
+class FormContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -33,19 +34,21 @@ class Form extends Component {
   render() {
     const { input } = this.state;
     return (
-      <form
-        onSubmit={e => {
-          this.handleSubmit(e);
-        }}
-      >
-        <input
-          onChange={e => this.handleInput(e)}
-          value={input}
-          type="text"
-          placeholder="push todo"
-        />
-        <button type="submit">add</button>
-      </form>
+      <Container>
+        <Form
+          onSubmit={e => {
+            this.handleSubmit(e);
+          }}
+        >
+          <input
+            onChange={e => this.handleInput(e)}
+            value={input}
+            type="text"
+            placeholder="push todo"
+          />
+          <Button type="submit">add</Button>
+        </Form>
+      </Container>
     );
   }
 }
@@ -62,4 +65,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(Form);
+)(FormContainer);

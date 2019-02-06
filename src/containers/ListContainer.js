@@ -3,7 +3,7 @@ import { removeTodo, completedTodo } from "../actions/index";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-class List extends Component {
+class ListContainer extends Component {
   render() {
     const { todos, removeTodo, completedTodo } = this.props;
     return (
@@ -40,4 +40,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List);
+)(ListContainer);

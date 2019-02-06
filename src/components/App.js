@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Form from "../containers/Form";
-import List from "../containers/List";
+import FormContainer from "../containers/FormContainer";
+import ListContainer from "../containers/ListContainer";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Form />
-        <List />
+        <FormContainer />
+        <ListContainer />
       </div>
     );
   }
