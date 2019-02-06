@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, List, Button } from "semantic-ui-react";
+import { Container, Segment, List, Button } from "semantic-ui-react";
 import { removeTodo, completedTodo } from "../actions/index";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -8,18 +8,34 @@ class ListContainer extends Component {
   render() {
     const { todos, removeTodo, completedTodo } = this.props;
     return (
-      <Container>
-        <List>
-          {todos.map(t => (
-            <List.Item key={t.id}>
-              <span onClick={() => completedTodo(t.id)}>{t.text}</span>
-              <Button onClick={() => removeTodo(t.id)} type="button">
-                delete
-              </Button>
-              {t.completed ? "completed" : "not completed"}
-            </List.Item>
-          ))}
-        </List>
+      <Container style={{ marginTop: "15px" }}>
+        <Segment inverted>
+          <List inverted relaxed>
+            {todos.map(t => (
+              <List.Item key={t.id}>
+                <List.Content
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <List.Header>
+                    <h2
+                      style={{
+                        textDecoration: t.completed ? "line-through" : "none"
+                      }}
+                      onClick={() => completedTodo(t.id)}
+                    >
+                      {t.text}
+                    </h2>
+                  </List.Header>
+
+                  <Button onClick={() => removeTodo(t.id)} type="button">
+                    delete
+                  </Button>
+                  {}
+                </List.Content>
+              </List.Item>
+            ))}
+          </List>
+        </Segment>
       </Container>
     );
   }
