@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Button, Form } from "semantic-ui-react";
+import { Container, Header, Button, Form } from "semantic-ui-react";
 import { addTodo } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -35,6 +35,7 @@ class FormContainer extends Component {
     const { input } = this.state;
     return (
       <Container>
+        <Header as="h1">Todo List</Header>
         <Form
           onSubmit={e => {
             this.handleSubmit(e);
